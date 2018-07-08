@@ -1,17 +1,25 @@
 @font-face {
     font-family: 'Manga Style';
-    src: url('../assets/Manga-Style.ttf');
+    src: url(../../assets/fonts/Manga%Style.ttf);
 }
 
 body {
 
 }
 
+/**** Classes & IDs ****/
+
+#addName, #addMessage {
+  color: #fff;
+}
+
+
 .main-title {
   font-family: 'Manga Style';
   font-size: 24px;
 }
 
+/**** Media Queries ****/
 
 @media and screen (max-width: 480px){
 
