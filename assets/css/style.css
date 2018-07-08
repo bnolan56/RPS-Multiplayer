@@ -1,3 +1,21 @@
+@font-face {
+    font-family: 'Manga Style';
+    src: url('../assets/Manga-Style.ttf');
+}
+
 body {
 
+}
+
+.main-title {
+  font-family: 'Manga Style';
+  font-size: 24px;
+}
+
+
+@media and screen (max-width: 480px){
+
+  .main-title {
+    font-size: 14px;
+  }
 }

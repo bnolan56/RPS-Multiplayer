@@ -6,21 +6,55 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guu, Paa, Choki!!!</title>
-    <link rel="icon" href="assets/images/trailangel-logo.png" size="512x512" type="image/x-icon"/>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
 
   <body>
+    <header class="container">
+      <div class="row center">
+        <div class="col l12">
+          <h4 class="light-blue-text accent-3 main-title">ROCK, PAPER, SCISSORS!!</h4>
+        </div>
+      </div>
+    </header>
 
+    <br />
+
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col l12">
+            <div id="choices" class="center">
+              <button id="start" class="waves-effect btn light-blue">Start Game</button>
+              <div id="options" class="justify-content-center"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer>
+      <!-- Element Showed -->
+      <a id="menu" class="waves-effect waves-light btn btn-floating light-blue acccent-3" ><i class="material-icons">menu</i></a>
+
+      <!-- Tap Target Structure -->
+      <div class="tap-target" data-target="menu">
+        <div class="tap-target-content">
+          <h5>Title</h5>
+          <p>A bunch of text</p>
+        </div>
+      </div>
+    </footer>
 
     <!--JavaScript at end of body for optimized loading-->
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <script type="text/javascript" src="assets/javascript/init.js"></script>
   </body>
 </html>
