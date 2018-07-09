@@ -120,21 +120,21 @@ chatData.orderByChild("time").on("child_added", function(snapshot) {
   $("#messages").scrollTop($("#messages")[0].scrollHeight);
 });
 
-// Tracks changes in key which contains player objects
+//
 playersRef.on("value", function(snapshot) {
 
   // length of the 'players' array
   currentPlayers = snapshot.numChildren();
 
-  // Check to see if players exist
+  // checks if the players exist
   playerOneExists = snapshot.child("1").exists();
   playerTwoExists = snapshot.child("2").exists();
 
-  // Player data objects
+  // player data objects
   playerOneData = snapshot.child("1").val();
   playerTwoData = snapshot.child("2").val();
 
-  // If theres a player 1, fill in name and win loss data
+  // if there is player 1, it populates these div ids with text
   if (playerOneExists) {
     $("#player1-name").text(playerOneData.name);
     $("#player1-wins").text("Wins: " + playerOneData.wins);
@@ -142,13 +142,13 @@ playersRef.on("value", function(snapshot) {
 
   } else {
 
-    // If there is no player 1, clear win/loss data and show waiting
+    // if there is no player 1, empties divs and replaces text wiht Waitinf for Player
     $("#player1-name").text("Waiting for Player 1");
     $("#player1-wins").empty();
     $("#player1-losses").empty();
   }
 
-  // If theres a player 2, fill in name and win/loss data
+// if there is player 1, it populates these div ids with text
   if (playerTwoExists) {
     $("#player2-name").text(playerTwoData.name);
     $("#player2-wins").text("Wins: " + playerTwoData.wins);
@@ -156,14 +156,14 @@ playersRef.on("value", function(snapshot) {
 
   } else {
 
-    // If no player 2, clear win/loss and show waiting
+    // if there is no player 2, empties win/loss and shows waiting text
     $("#player2-name").text("Waiting for Player 2");
     $("#player2-wins").empty();
     $("#player2-losses").empty();
   }
 });
 
-// looks for changes in current turn
+// turn function
 currentTurnRef.on("value", function(snapshot) {
 
   // gets turn from snapshot
@@ -174,7 +174,7 @@ currentTurnRef.on("value", function(snapshot) {
 
     if (currentTurn === 1) {
 
-      // If its the current player's turn, tells them and show choices
+      // if its the current player's turn, game tells them and shows choices
       if (currentTurn === playerNum) {
         $("#current-turn").html("<p>It's Your Turn!</p>");
         $("#player1").html("<img class='img-choice' id='rock' src='assets/images/rock.png' alt='Rock'/> <img class='img-choice' id='paper' src='assets/images/paper.png' alt='Paper'/> <img class='img-choice' id='scissors' src='assets/images/scissors.png' alt='Scissors'/>");
@@ -190,7 +190,7 @@ currentTurnRef.on("value", function(snapshot) {
 
     } else if (currentTurn === 2) {
 
-      // If its the current player's turn, tell them and show choices
+      // if its the current player's turn (2), game tells them and shows choices
       if (currentTurn === playerNum) {
         $("#current-turn").html("<p>It's Your Turn!</p>");
         $("#player2").html("<img class='img-choice' id='rock' src='assets/images/rock.png' alt='Rock'/> <img class='img-choice' id='paper' src='assets/images/paper.png' alt='Paper'/> <img class='img-choice' id='scissors' src='assets/images/scissors.png' alt='Scissors'/>");
@@ -207,21 +207,21 @@ currentTurnRef.on("value", function(snapshot) {
 
     } else if (currentTurn === 3) {
 
-      // Where the game win logic takes place then resets to turn 1
+      // gmaeREsults function runs comparing the two player choices
       gameResults(playerOneData.choice, playerTwoData.choice);
 
       // reveal both player choices
       $("#player1").html(playerOneData.choice);
       $("#player2").html(playerTwoData.choice);
 
-      //  reset after timeout
+      //  resets turns and empties divs after 4 sec timeout
       var nextTurn = function() {
 
         $("#player1").empty();
         $("#player2").empty();
         $("#results").empty();
 
-        // check to make sure players didn't leave before timeout (bug with multiple tabs, clears player1 have to force reset)
+        // check to make sure players didn't leave before timeout (bug with multiple tabs, clears player1 have to force reset not sure how)
         if (playerOneExists && playerTwoExists) {
           currentTurnRef.set(1);
           currentTurn === playerNum;
@@ -247,7 +247,7 @@ playersRef.on("child_added", function(snapshot) {
 
   if (currentPlayers === 1) {
 
-    // set turn to 1, which starts the game
+    // sets turn to 1 and  starts the game
     currentTurnRef.set(1);
   }
 });
@@ -267,10 +267,10 @@ function startGame() {
       playerNum = 1;
     }
 
-    // Creates key based on assigned player number
+    // creates a unique key based on assigned player number
     playerRef = database.ref("/players/" + playerNum);
 
-    // creates player object
+    // creates player object in firebase
     playerRef.set({
       name: username,
       wins: 0,
@@ -323,6 +323,7 @@ function gameResults(player1choice, player2choice) {
     $("#results").html("<h5>Tie Game!</h5>");
   };
 
+  //if statement compares the unique ids of playerChoice to see who wins
   if (player1choice === 'rock' && player2choice === 'rock') {
     tie();
 
