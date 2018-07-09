@@ -1,11 +1,21 @@
+/**** Body and HTML Tags ****/
+
 @font-face {
     font-family: 'Manga Style';
     src: url(../../assets/fonts/Manga%Style.ttf);
 }
 
 body {
-
+  max-width: 100%;
+  background: url('../../assets/images/jp-bg.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+
+/**** Typography ****/
+
 
 /**** Classes & IDs ****/
 
@@ -13,17 +23,80 @@ body {
   color: #fff;
 }
 
-
-.main-title {
-  font-family: 'Manga Style';
-  font-size: 24px;
+#messages {
+  height: 200px;
+  overflow-y: scroll;
 }
 
+.timestamp {
+    color: #bbb;
+    font-size: 12px;
+}
+
+#shameful {
+  margin-top: .5rem;
+  font-family: 'Manga Style';
+}
+
+.img-choice {
+  float: left;
+  margin-top: 1.5rem;
+  padding-right: 1%;
+  max-width: 33%;
+}
+
+.input-field input[type=text]:focus:not([readonly]) {
+  border-bottom: 1px solid #000 !important;
+  box-shadow: 0 1px 0 0 #000;
+}
+
+#logo {
+  max-width: 34%;
+  margin-top: 1rem;
+}
+
+.game-section {
+	text-align: center;
+	height: 200px;
+	width: 33.33%;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+  margin-bottom: 2.2rem;
+}
+
+.game-section:last-child {
+	border-right: 1px solid #ccc;
+}
+
+p.playerfalse {
+  color: #ea80fc;
+}
+
+p.player1 {
+  color: #00c853;
+}
+
+p.player2 {
+  color: #f06292;
+}
 /**** Media Queries ****/
 
-@media and screen (max-width: 480px){
+@media screen and (max-width: 480px){
 
-  .main-title {
-    font-size: 14px;
+  #logo {
+    max-width: 50%;
+    margin-top: 1rem;
+  }
+
+  .game-section {
+  	text-align: center;
+  	height: 200px;
+  	width: 100%;
+  	border-top: 1px solid #ccc;
+  	border-bottom: 1px solid #ccc;
+  	border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    margin-bottom: 2.2rem;
   }
 }

@@ -13,74 +13,96 @@
   </head>
 
   <body>
-    <header class="container">
-      <div class="row center">
-        <div class="col l12">
-          <h4 class="light-blue-text accent-3 main-title">ROCK, PAPER, SCISSORS!!</h4>
-        </div>
-      </div>
+    <header class="center">
+          <img id="logo" src="assets/images/rps-logo.svg" alt="Rock. Paper. Scissors!" />
     </header>
-
-    <br />
 
     <main>
       <div class="container wrapper">
         <div class="row">
           <div class="col l12">
-            <div class="greeting col l12">
-        			<input type="text" id="name-input" placeholder="Player Name">
-              <input id="addName" class="btn waves-effect white-text light-blue accent-3" type="submit" value="Starto">
-              <!-- <button type="submit" class="btn waves-effect white-text light-blue accent-3" id="addName">Submit</button> -->
+            <div class="card col l12">
+              <div class="card-content">
+                <span class="card-title">Name Choose You! </span>
+                <input type="text" id="name-input" placeholder="Player Name">
+                <input id="addName" class="btn waves-effect white-text light-blue accent-3" type="submit" value="Starto">
+                <div id="show-player-num"></div>
+              </div>
         		</div>
 
+            <!-- main game container -->
+            <div class="card col l12">
+              <div class="card-content">
+                <span class="card-title">Play Game!</span>
+        		    	<div class="game-section col l4" id="player1-section">
+        		    		<div id="player1-name" class="p-not-entered">Waiting for Player 1</div>
+                    <div id="player1-stats"><span id="player1-wins">0</span> | <span id="player1-losses"></span></div>
+                    <div id="current-turn"></div>
+        		    		<div id="player1-choices">
+                      <div id="player1"></div>
+                    </div>
+        		    	</div>
+        		    	<div class="game-section col l4">
+        		    		<div id="outcome-container">
+        		    			<div id="results"></div>
+        		    		</div>
+        		    	</div>
+        		    	<div class="game-section col l4" id="player2-section">
+        		    		<div id="player2-name" class="p-not-entered">Waiting for Player 2</div>
+                    <div id="player2-stats"><span id="player2-wins">0</span> | <span id="player2-losses"></span></div>
+                    <div id="current-turn"></div>
+        		    		<div id="player2-choices">
+                      <div id="player2"></div>
+                    </div>
+        		    	</div>
+          		  </div>
+              </div>
+            </div>
+
+            <!-- chat window  -->
+            <div class="col l12">
+              <div class="card col l12">
+                <div class="card-content">
+                  <span class="card-title">Insult Your Opponent!</span>
+
+                  <div id="messages" class="materialize-textarea"></div>
+                  <input type="text" id="message-input" placeholder="Message">
+                  <input id="addMessage" class="btn waves-effect white-text light-blue accent-3" type="submit" value="Sendo">
+
+                  <p>or hit 'Enter'</p>
+                </div>
+              </div>
+            </div>
 
 
-            <div class="holder-box">
-        			<div class="box player1 col l6">
-        				<div class="waiting">
-        					<p>Waiting for player 1</p>
-        					<i class="fa fa-spinner fa-spin fa-one-large fa-fw"></i>
-        				</div>
 
-        				<div class="score score1"></div>
-        				<div class="choices1"></div>
-        			</div>
 
-        			<div class="results"></div>
-
-        			<div class="box player2 col l6">
-        				<div class="waiting">
-        					<p>Waiting for player 2</p>
-        					<i class="fa fa-spinner fa-spin fa-one-large fa-fw"></i>
-        				</div>
-
-        				<div class="score score2"></div>
-        				<div class="choices2"></div>
-        			</div>
-        		</div>
-          </div>
-        </div>
-
-        <br />
-
-        <div class="row">
-          <div class="col l12">
-            <div class="holder-messages col l12">
-              <h6 class="blue-grey-text">Insult Channel</h6>
-        			<div id="messages"></div>
-        			<input type="text" id="message-input" placeholder="Message">
-              <input id="addMessage" class="btn waves-effect white-text light-blue accent-3" type="submit" value="Sendo">
-        		</div>
           </div>
         </div>
       </div>
     </main>
-    
+
+
+    <!-- Alert Modals if the game is full -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4 id="shameful" class="center">SHAMEFUL!</h4>
+        <br />
+        <p class="center">Game is full! No more players! You have shamed your family for trying to join full game!</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">I understand</a>
+      </div>
+    </div>
+
+    <!-- audio -->
+    <audio id="rpsTheme" src="assets/music/rps-go.mp3"></audio>
+
     <!--JavaScript at end of body for optimized loading-->
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <script type="text/javascript" src="assets/javascript/rps.js"></script>
     <script type="text/javascript" src="assets/javascript/init.js"></script>
   </body>
 </html>
