@@ -16,6 +16,22 @@ body {
 
 /**** Typography ****/
 
+.timestamp {
+    color: #bbb;
+    font-size: 12px;
+}
+
+p.playerfalse {
+  color: #ea80fc;
+}
+
+p.player1 {
+  color: #00c853;
+}
+
+p.player2 {
+  color: #f06292;
+}
 
 /**** Classes & IDs ****/
 
@@ -28,10 +44,6 @@ body {
   overflow-y: scroll;
 }
 
-.timestamp {
-    color: #bbb;
-    font-size: 12px;
-}
 
 #shameful {
   margin-top: .5rem;
@@ -69,17 +81,6 @@ body {
 	border-right: 1px solid #ccc;
 }
 
-p.playerfalse {
-  color: #ea80fc;
-}
-
-p.player1 {
-  color: #00c853;
-}
-
-p.player2 {
-  color: #f06292;
-}
 /**** Media Queries ****/
 
 @media screen and (max-width: 480px){
