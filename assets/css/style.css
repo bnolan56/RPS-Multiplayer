@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'Manga Style';
-  src: url(../../assets/fonts/Manga%Style.ttf) format("ttf");
+  src: url('../../assets/fonts/Manga%Style.ttf') format("ttf");
 }
 
 body {
