@@ -1,9 +1,8 @@
 /**** Body and HTML Tags ****/
 
 @font-face {
-    font-family: 'Manga Style';
-    src: url(../../assets/fonts/Manga%Style.ttf) format("ttf");
-}
+  font-family: 'Manga Style';
+  src: url(../../assets/fonts/Manga%Style.ttf) format("ttf");
 }
 
 body {
